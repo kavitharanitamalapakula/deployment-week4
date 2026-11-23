@@ -24,7 +24,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Indigo.ai API", description="AI-powered message analysis and contextual assistance.", version="4.0.0", lifespan=lifespan)
 # Only the frontends listed in ALLOWED_ORIGINS (backend/.env or Render settings) may call the API.
-app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS, allow_credentials=False, allow_methods=["GET", "POST", "PATCH", "DELETE"], allow_headers=["Content-Type"])
+app.add_middleware(CORSMiddleware, allow_origins=ALLOWED_ORIGINS, allow_credentials=False, allow_methods=["GET", "POST", "PATCH", "DELETE"], allow_headers=["*"])
 
 @app.get("/")
 def root():
